@@ -4,12 +4,12 @@ public class ShellSorter implements Sorter {
     public ArrayList<Integer> sort(ArrayList<Integer> input) {
         ArrayList<Integer> sorted = new ArrayList<>(input);
         int n = sorted.size();
-        for (int gap = n / 2; gap > 0; gap /= 2) {
-            for (int i = gap; i < n; i++) {
+        for (int m = n / 2; m > 0; m /= 2) {
+            for (int i = m; i < n; i++) {
                 int temp = sorted.get(i);
                 int j;
-                for (j = i; j >= gap && sorted.get(j - gap) > temp; j -= gap) {
-                    sorted.set(j, sorted.get(j - gap));
+                for (j = i; j >= m && sorted.get(j - m) > temp; j -= m) {
+                    sorted.set(j, sorted.get(j - m));
                 }
                 sorted.set(j, temp);
             }
